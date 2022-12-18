@@ -21,3 +21,4 @@ Route::get('/', function () {
 Route::get('/todo', [Todo::class, 'getIssuesAssignedByUserId']);
 
 Route::post('/todo/add', [Todo::class, 'createIssue']);
+Route::post('/todo/delete', [Todo::class, 'deleteIssue']);

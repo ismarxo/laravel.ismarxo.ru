@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->integer('created_by_user');
             $table->integer('assigned_to_user');
-            $table->timestamp('changed_at')->nullable();
             $table->timestamps();
         });
     }
