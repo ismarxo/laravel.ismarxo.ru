@@ -40,6 +40,14 @@ class Todo extends Controller
             $issue->delete();
         }
 
+        return redirect('/todo');
+    }
+
+    public function deleteAllIssues(Request $request)
+    {
+        $user_id = 1; #TODO add user_id from request or from controller
+        $issue = Issue::where('created_by_user', $user_id);
+        $issue->delete();
 
         return redirect('/todo');
     }
