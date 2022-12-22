@@ -11,13 +11,38 @@ class Todo extends Controller
     {
         $issue = new Issue;
         $issue->name = $request->issue ? $request->issue : 'NO TITLE';
+        $issue->status = 1;
         $issue->created_by_user = 1;
         $issue->assigned_to_user = 1;
         $issue->save();
 
+        return redirect('/todo');
+    }
+
+    public function simpleCompleteOfIssue(Request $request)
+    {
+        $request->status = 2;
+        $this->switchStatusOfIssue($request);
+        return redirect('/todo');
+    }
+
+    public function simpleUncompleteOfIssue(Request $request)
+    {
+        $request->status = 1;
+        $this->switchStatusOfIssue($request);
+        return redirect('/todo');
+    }
+
+    public function switchStatusOfIssue(Request $request)
+    {
+        $issueId = $request->issue_id;
+        $statusId = $request->status;
+        $issue = Issue::find($issueId);
+        $issue->status = $statusId;
+        $issue->save();
 
         return redirect('/todo');
-}
+    }
 
     public function getIssuesAssignedByUserId(Request $request)
     {

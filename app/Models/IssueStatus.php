@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Issue extends Model
+class IssueStatus extends Model
 {
     use HasFactory;
 
     /**
      * @var string $table
      */
-    protected $table = 'issues';
+    protected $table = 'issue_status';
 
     /**
      * @var array $fillable
      */
     protected $fillable = [
         'name',
-        'status',
+        'description',
         'created_by_user',
         'assigned_to_user'
     ];

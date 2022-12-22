@@ -23,3 +23,6 @@ Route::get('/todo', [Todo::class, 'getIssuesAssignedByUserId']);
 Route::post('/todo/add', [Todo::class, 'createIssue']);
 Route::post('/todo/delete', [Todo::class, 'deleteIssue']);
 Route::post('/todo/delete/all', [Todo::class, 'deleteAllIssues']);
+Route::post('/todo/complete', [Todo::class, 'simpleCompleteOfIssue']);
+Route::post('/todo/uncomplete', [Todo::class, 'simpleUncompleteOfIssue']);
+
